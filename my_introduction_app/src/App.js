@@ -1,17 +1,29 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import JSON from './components/Db.json';
 import Counter from './components/Counter';
+import NewsList from './components/NewsList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p> Intorduction to React </p>
-        <p> This is a simple introduction to React. </p>
-      </header>
-      <Counter />
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      news: JSON
+    };
+  }
+  render(){
+    return (
+      console.log(this.state.news),
+      <div className="App">
+        <header className="App-header">
+          <NewsList newlistData = {this.state.news}>  </NewsList>
+        </header>
+        <Counter />
+      </div>
+    );
+  }
+ 
 }
 
 export default App;

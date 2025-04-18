@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import './Header.css';
 
 class Header extends Component {
@@ -6,18 +6,24 @@ class Header extends Component {
     super(props);
     this.state = {
       // Define any state variables here if needed
-      title: "My React Header"
+      title: "Triple a organic farms and nursery pvt ltd"
     };
+  }
+  inputChange(event) {
+    console.log(event.target.value);
+    this.setState({ keyword: event.target.value });
   }
   render() {
     return (
       <div>
         <header className="header">
-          
-           <center><h1> React Header </h1>  <input style={{fontSize: '20px'}} type="text" name="textbox" id="textbox" placeholder=" Search Anything"/> <div>{this.state.title}</div> </center>
+
+          <center>
+            <h1>{this.state.title}</h1>            
+          </center>
         </header>
-    </div>
-      
+      </div>
+
     );
   }
 }
