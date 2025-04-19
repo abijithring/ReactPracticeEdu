@@ -6,7 +6,7 @@ class Header extends Component {
     super(props);
     this.state = {
       // Define any state variables here if needed
-      title: "Triple a organic farms and nursery pvt ltd"
+      title: "Natural organic farming and nursery pvt ltd"
     };
   }
   inputChange(event) {

@@ -1,8 +1,6 @@
 // File: src/components/NewsList.js
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// Removed invalid <link> tags. Stylesheets are now included in public/index.html.
-
 
 const NewsList = (props) => {
     console.log(props.newlistData);
