@@ -28,25 +28,25 @@ h2{
   margin: 20px 0; /* Adds spacing above and below the table */
   font-size: 16px;
   text-align: left;
-}
+}s
 
 .news-table th, .news-table td {
-  border: 1px solid #130303; /* Adds a border to cells */
+  border: 1px solid #070000; /* Adds a border to cells */
   padding: 12px; /* Adds padding inside the cells */
 }
 
 .news-table th {
-  background-color: #5f7991; /* Makes the header bluish grey */
+  background-color: #8489ad; /* Makes the header bluish grey */
   color: rgb(22, 3, 3); /* Changes the text color to black */
   text-align: center; /* Centers the header text */
   font-weight: bold; /* Makes the header text bold */
 }
 
 .news-table tr:nth-child(even) {
-  background-color: #8f7a7a; /* Adds a light-gray background for even rows */
+  background-color: #854585; /* Adds a light-gray background for even rows */
 }
 
 .news-table tr:hover {
-  background-color: #8486eb; /* Highlights row when hovered */
+  background-color: #2e31e2; /* Highlights row when hovered */
 }
 

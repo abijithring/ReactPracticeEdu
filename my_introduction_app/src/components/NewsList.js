@@ -11,6 +11,7 @@ const NewsList = (props) => {
     const [addressFilter, setAddressFilter] = useState("");
     const [phoneFilter, setPhoneFilter] = useState("");
     const [websiteFilter, setWebsiteFilter] = useState("");
+    const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 
     // Filter the data based on the search inputs
     const filteredData = newlistData.filter((newsItem) =>
@@ -21,14 +22,43 @@ const NewsList = (props) => {
         newsItem.website.toLowerCase().includes(websiteFilter.toLowerCase())
     );
 
+    //Sort the data based on the selected column and direction
+    const sortedData = [...filteredData].sort((a, b) => {
+        if (sortConfig.key) {
+            const aValue = a[sortConfig.key].toLowerCase();
+            const bValue = b[sortConfig.key].toLowerCase();
+            if (aValue < bValue) {
+                return sortConfig.direction === 'asc' ? -1 : 1;
+            }
+            if (aValue > bValue) {
+                return sortConfig.direction === 'asc' ? 1 : -1;
+            }
+        }
+        return 0;
+    });
+
+    // Function to handle sorting when a column header is clicked
+    const requestSort = (key) => {
+        let direction = 'asc';
+        if (sortConfig.key === key && sortConfig.direction === 'asc') {
+            direction = 'desc';
+        }
+        setSortConfig({ key, direction });
+    }; 
+
     return (
         <div className="news-table-container">
             <h2>Employees List</h2>
             <table className="table table-striped table-bordered table-hover news-table">
                 <thead>
                     <tr>
-                        <th>
+                        <th key='name' onClick={() => requestSort('name')} style={{ cursor: 'pointer' }}>
                             Name
+                            {sortConfig.key === 'name' && (
+                                <span>
+                                    {sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽'}
+                                </span>
+                            )}
                             <div className="input-group">
                                 <input
                                     type="text"
@@ -90,7 +120,7 @@ const NewsList = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredData.map((newsItem, index) => (
+                    {sortedData.map((newsItem, index) => (
                         <tr key={index}>
                             <td>{newsItem.name}</td>
                             <td>{newsItem.email}</td>
