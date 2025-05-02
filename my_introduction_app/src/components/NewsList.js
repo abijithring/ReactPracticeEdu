@@ -48,7 +48,18 @@ const NewsList = (props) => {
 
     return (
         <div className="news-table-container">
-            <h2>Employees List</h2>
+            <h2>Employees List</h2>  <button
+                className="btn btn-primary mt-3"
+                onClick={() => {
+                    setNameFilter("");
+                    setEmailFilter("");
+                    setAddressFilter("");
+                    setPhoneFilter("");
+                    setWebsiteFilter("");
+                }}
+            >
+                Clear Filters
+            </button>
             <table className="table table-striped table-bordered table-hover news-table">
                 <thead>
                     <tr>
@@ -131,18 +142,7 @@ const NewsList = (props) => {
                     ))}
                 </tbody>
             </table>
-            <button
-                className="btn btn-primary mt-3"
-                onClick={() => {
-                    setNameFilter("");
-                    setEmailFilter("");
-                    setAddressFilter("");
-                    setPhoneFilter("");
-                    setWebsiteFilter("");
-                }}
-            >
-                Clear Filters
-            </button>
+           
         </div>
     );
 };
